@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { Seo } from "@/components/seo";
 import { fetchSerie } from "@/services/series";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
@@ -16,8 +17,19 @@ const SeriePage = () => {
   if (!data) {
     return null;
   }
+  const title = `LaToons - ${data?.serie?.title}`;
+  const url = `${process.env.NEXT_PUBLIC_URL}/serie/${params?.query?.id}`;
+  const description = data?.serie?.review?.slice(0, 155);
+
   return (
-    <main className="flex flex-col items-center justify-center">
+    <main className="flex flex-col items-center justify-center pt-4">
+      <Seo
+        description={description}
+        title={title}
+        image={data?.serie?.image ?? ""}
+        keywords="cartoons,latoons,animation, series, serie, details, studio, temporadas, episodios"
+        url={url}
+      />
       <section className=" flex flex-col gap-4 max-w-[1024px] w-full px-4">
         <img
           loading="lazy"
