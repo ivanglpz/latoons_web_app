@@ -16,7 +16,7 @@ export const Seo = ({ title, description, keywords, image, url }: Props) => {
     description || "Descripción de mi sitio web para SEO.";
   const metaKeywords = keywords || "desarrollo, programación, Next.js, SEO";
   const metaImage = image || "/default-image.jpg";
-  const metaUrl = url || "https://www.misitio.com"; // URL por defecto si no se pasa
+  const metaUrl = url || "https://www.misitio.com";
 
   return (
     <Head>
@@ -26,7 +26,7 @@ export const Seo = ({ title, description, keywords, image, url }: Props) => {
       <meta property="og:title" content={metaTitle} />
       <meta property="og:description" content={metaDescription} />
       <meta property="og:image" content={metaImage} />
-      <meta property="og:url" content={metaUrl} /> {/* Meta etiqueta URL */}
+      <meta property="og:url" content={metaUrl} />
       <meta name="twitter:title" content={metaTitle} />
       <meta name="twitter:description" content={metaDescription} />
       <meta name="twitter:image" content={metaImage} />
