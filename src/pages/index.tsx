@@ -12,7 +12,11 @@ export default function Home() {
     queryFn: async () => fetchListSeries(),
   });
   if (!data) {
-    return null;
+    return (
+      <div className="h-dvh w-full flex justify-center items-center">
+        <span className="loader"></span>
+      </div>
+    );
   }
 
   return (
@@ -142,7 +146,7 @@ export default function Home() {
                 />
 
                 <div className="flex flex-col gap-2">
-                  <p className="font-bold text-sm line-clamp-1 col-span-2">
+                  <p className="font-bold text-sm line-clamp-2 col-span-2">
                     {e?.title}
                   </p>
                   <div className="flex flex-row justify-between w-full gap-4">
@@ -167,7 +171,6 @@ export default function Home() {
                         </svg>
                       </div>
                     </div>
-                    {/* <StudioCardLabel studio={studiosByKey[e?.studioId]} /> */}
                   </div>
                 </div>
                 <button

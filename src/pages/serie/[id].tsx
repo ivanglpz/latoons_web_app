@@ -15,7 +15,11 @@ const SeriePage = () => {
   });
 
   if (!data) {
-    return null;
+    return (
+      <div className="h-dvh w-full flex justify-center items-center">
+        <span className="loader"></span>
+      </div>
+    );
   }
   const title = `LaToons - ${data?.serie?.title}`;
   const url = `${process.env.NEXT_PUBLIC_URL}/serie/${params?.query?.id}`;
