@@ -43,7 +43,7 @@ const SeriePage = () => {
           {data?.seasons?.map((e) => {
             return (
               <li key={e?.season?.id}>
-                <p className="font-bold mb-4 px-2 sticky top-[62px] border bg-white dark:border-neutral-700 dark:bg-neutral-900 dark:text-white p-2 text-black rounded-md">
+                <p className="font-bold mb-4 px-2 sticky top-[10px] border bg-white dark:border-neutral-700 dark:bg-neutral-900 dark:text-white p-2 text-black rounded-md">
                   🎬 {e?.season?.title}
                 </p>
                 <ul className="flex flex-col gap-4 pl-5">
