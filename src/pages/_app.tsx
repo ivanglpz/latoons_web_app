@@ -1,22 +1,21 @@
 import "@/styles/globals.css";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import type { AppProps } from "next/app";
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 24 * 60 * 60 * 1000, // 24 hours in milliseconds
-      gcTime: 24 * 60 * 60 * 1000 + 60 * 60 * 1000, // 25 hours (cache time should exceed stale time)
-      refetchOnMount: false,
-      refetchOnWindowFocus: false,
-      refetchOnReconnect: false,
-    },
-  },
-});
+// const queryClient = new QueryClient({
+//   defaultOptions: {
+//     queries: {
+//       staleTime: 24 * 60 * 60 * 1000, // 24 hours in milliseconds
+//       gcTime: 24 * 60 * 60 * 1000 + 60 * 60 * 1000, // 25 hours (cache time should exceed stale time)
+//       refetchOnMount: false,
+//       refetchOnWindowFocus: false,
+//       refetchOnReconnect: false,
+//     },
+//   },
+// });
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <QueryClientProvider client={queryClient}>
-      <Component {...pageProps} />
-    </QueryClientProvider>
+    // <QueryClientProvider client={queryClient}>
+    <Component {...pageProps} />
+    // </QueryClientProvider>
   );
 }
