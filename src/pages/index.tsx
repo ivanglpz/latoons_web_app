@@ -1,22 +1,36 @@
 /* eslint-disable @next/next/no-img-element */
 import { Seo } from "@/components/seo";
-import { fetchListSeries } from "@/services/series";
-import { useQuery } from "@tanstack/react-query";
+import { Serie } from "@/services/series";
+// import { fetchListSeries } from "@/services/series";
+// import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 
-export default function Home() {
+export const getStaticProps = async () => {
+  const series: Serie[] = await fetch(
+    process.env.NEXT_PUBLIC_SERIES ?? ""
+  ).then((res) => res.json());
+
+  return {
+    props: { series },
+    // Next.js will invalidate the cache when a
+    // request comes in, at most once every 60 seconds.
+    // revalidate: 86400,
+  };
+};
+
+export default function Home({ series }: { series: Serie[] }) {
   const router = useRouter();
-  const { data } = useQuery({
-    queryKey: ["series_fetch"],
-    queryFn: async () => fetchListSeries(),
-  });
-  if (!data) {
-    return (
-      <div className="h-dvh w-full flex justify-center items-center">
-        <span className="loader"></span>
-      </div>
-    );
-  }
+  // const { data } = useQuery({
+  //   queryKey: ["series_fetch"],
+  //   queryFn: async () => fetchListSeries(),
+  // });
+  // if (!data) {
+  //   return (
+  //     <div className="h-dvh w-full flex justify-center items-center">
+  //       <span className="loader"></span>
+  //     </div>
+  //   );
+  // }
 
   return (
     <main className="flex flex-col items-center justify-center gap-6 pt-4">
@@ -131,7 +145,7 @@ export default function Home() {
           </div>
         </div>
         <ul className="grid grid-cols-1 gap-4  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
-          {data?.map((e) => {
+          {series?.map((e) => {
             return (
               <li
                 key={e?.id}
