@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex
+	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <sitemap>
+		<loc>https://latoons.vercel.app/sitemap-pages-1.xml</loc>
+	</sitemap>
+	<sitemap>
+		<loc>https://latoons.vercel.app/sitemap-serie-1.xml</loc>
+	</sitemap>
+	<sitemap>
+		<loc>https://latoons.vercel.app/sitemap-serie-2.xml</loc>
+	</sitemap>
+	<sitemap>
+		<loc>https://latoons.vercel.app/sitemap-serie-3.xml</loc>
+	</sitemap>
+	<sitemap>
+		<loc>https://latoons.vercel.app/sitemap-serie-4.xml</loc>
+	</sitemap>
+	<sitemap>
+		<loc>https://latoons.vercel.app/sitemap-serie-5.xml</loc>
+	</sitemap>
+	<sitemap>
+		<loc>https://latoons.vercel.app/sitemap-serie-6.xml</loc>
+	</sitemap>
+	<sitemap>
+		<loc>https://latoons.vercel.app/sitemap-serie-7.xml</loc>
+	</sitemap>
+	<sitemap>
+		<loc>https://latoons.vercel.app/sitemap-serie-8.xml</loc>
+	</sitemap>
+	<sitemap>
+		<loc>https://latoons.vercel.app/sitemap-serie-9.xml</loc>
+	</sitemap>
+	<sitemap>
+		<loc>https://latoons.vercel.app/sitemap-serie-10.xml</loc>
+	</sitemap>
+
+</sitemapindex>

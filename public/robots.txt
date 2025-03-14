@@ -1,0 +1,130 @@
+# Bloquear SemrushBot y bots relacionados
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: SiteAuditBot
+Disallow: /
+
+User-agent: SemrushBot-BA
+Disallow: /
+
+User-agent: SemrushBot-SI
+Disallow: /
+
+User-agent: SemrushBot-SWA
+Disallow: /
+
+User-agent: SplitSignalBot
+Disallow: /
+
+User-agent: SemrushBot-OCOB
+Disallow: /
+
+# Bloquear otros bots comunes no deseados
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: YandexBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: Sogou
+Disallow: /
+
+User-agent: Exabot
+Disallow: /
+
+User-agent: SEOkicks-Robot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: UptimeRobot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: MegaIndex
+Disallow: /
+
+User-agent: Slurp
+Disallow: /
+
+User-agent: archive.org_bot
+Disallow: /
+
+User-agent: ZoominfoBot
+Disallow: /
+
+User-agent: MauiBot
+Disallow: /
+
+User-agent: SEOBOT
+Disallow: /
+
+User-agent: Zombiebot
+Disallow: /
+
+User-agent: Qwantify
+Disallow: /
+
+User-agent: Wget
+Disallow: /
+
+User-agent: Scrapy
+Disallow: /
+
+User-agent: python-requests
+Disallow: /
+
+User-agent: curl
+Disallow: /
+
+# Permitir todos los bots de Google
+User-agent: Googlebot
+Allow: /
+User-agent: Googlebot-Image
+Allow: /
+User-agent: Googlebot-News
+Allow: /
+User-agent: Googlebot-Video
+Allow: /
+User-agent: Googlebot-Ads
+Allow: /
+User-agent: Googlebot-Mobile
+Allow: /
+User-agent: Googlebot-Image
+Allow: /
+User-agent: Googlebot-Local
+Allow: /
+
+# Permitir todos los bots de Bing
+User-agent: bingbot
+Allow: /
+User-agent: msnbot
+Allow: /
+User-agent: BingPreview
+Allow: /
+
+# Reglas generales para bloquear todos los demás bots
+User-agent: *
+Disallow: /
+
+# Host
+Host: https://latoons.vercel.app/
+
+# Sitemaps
+Sitemap: https://latoons.vercel.app/sitemap.xml
