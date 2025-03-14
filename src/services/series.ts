@@ -1,7 +1,6 @@
-import { decompressURL } from "@/utils/hash";
 import axios from "axios";
 
-type Serie = {
+export type Serie = {
   _id: {
     $oid: string;
   };
@@ -43,12 +42,20 @@ type Episode = {
   slug: string;
 };
 
+export type JSON_SCHEMA = {
+  serie: Serie;
+  seasons: {
+    season: Season;
+    episodes: Episode[];
+  }[];
+};
+
 export const fetchListSeries = async (): Promise<Serie[]> => {
   return (await axios.get(process.env.NEXT_PUBLIC_SERIES ?? "")).data;
 };
 
 export const fetchSerie = async (
-  id: string | null
+  url: string | null
 ): Promise<{
   serie: Serie;
   seasons: {
@@ -56,5 +63,5 @@ export const fetchSerie = async (
     episodes: Episode[];
   }[];
 }> => {
-  return (await axios.get(decompressURL(id ?? ""))).data;
+  return (await axios.get(url ?? "")).data;
 };

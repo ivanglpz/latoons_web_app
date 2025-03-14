@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Seo } from "@/components/seo";
 import { fetchListSeries } from "@/services/series";
-import { compressURL } from "@/utils/hash";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 
@@ -131,56 +130,35 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <ul className="grid grid-cols-1 gap-4  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+        <ul className="grid grid-cols-1 gap-4  sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 ">
           {data?.map((e) => {
             return (
               <li
                 key={e?.id}
-                className="cursor-pointer bg-neutral-100 border dark:border-neutral-700  dark:bg-neutral-900 hover:bg-neutral-200  dark:hover:bg-neutral-700 h-full p-2 rounded-lg flex flex-col gap-2"
+                className="cursor-pointer bg-neutral-100 border border-neutral-300 dark:border-neutral-700  dark:bg-neutral-900 h-full p-2 rounded-lg flex flex-col gap-2"
               >
                 <img
                   loading="lazy"
                   src={e?.image}
                   alt={e?.title + " image_alt_description"}
-                  className="bg-neutral-200 dark:bg-neutral-800 w-full object-cover h-[200px] rounded-lg"
+                  className="bg-neutral-200 dark:bg-neutral-800 w-full object-contain h-[180px] rounded-lg"
                 />
 
                 <div className="flex flex-col gap-2">
-                  <p className="font-bold text-sm line-clamp-2 col-span-2">
-                    {e?.title}
-                  </p>
-                  <div className="flex flex-row justify-between w-full gap-4">
-                    <div className="flex flex-row items-center justify-center border rounded-md dark:border-neutral-700">
-                      <div className="w-[30px] h-[25px] flex justify-center items-center ">
-                        <p className="font-semibold text-sm ">
-                          {e?.valoration / 2}
-                        </p>
-                      </div>
-                      <div className="w-[25px] h-[25px] flex justify-center items-center ">
-                        <svg
-                          width="20"
-                          height="20"
-                          viewBox="0 0 30 30"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M14.0489 2.92705C14.3483 2.00574 15.6517 2.00574 15.9511 2.92705L18.1432 9.67376C18.2771 10.0858 18.661 10.3647 19.0943 10.3647H26.1882C27.1569 10.3647 27.5597 11.6044 26.776 12.1738L21.0369 16.3435C20.6864 16.5981 20.5397 17.0495 20.6736 17.4615L22.8657 24.2082C23.1651 25.1295 22.1106 25.8956 21.3269 25.3262L15.5878 21.1565C15.2373 20.9019 14.7627 20.9019 14.4122 21.1565L8.67312 25.3262C7.88941 25.8956 6.83493 25.1295 7.13428 24.2082L9.32642 17.4615C9.46029 17.0495 9.31363 16.5981 8.96315 16.3435L3.22405 12.1738C2.44034 11.6044 2.84311 10.3647 3.81184 10.3647H10.9057C11.339 10.3647 11.7229 10.0858 11.8568 9.67376L14.0489 2.92705Z"
-                            fill="#f6d119"
-                          />
-                        </svg>
-                      </div>
-                    </div>
+                  <div className="md:min-h-[50px] lg:min-h-[60px]">
+                    <p className="font-bold text-sm line-clamp-2 col-span-2">
+                      {e?.title}
+                    </p>
                   </div>
+                  <button
+                    onClick={() => {
+                      router.push(`/serie/${e?.slug}`);
+                    }}
+                    className="w-full bg-blue-600 hover:bg-blue-700 rounded-sm text-sm font-bold p-2 cursor-pointer"
+                  >
+                    <p className="text-white">Play</p>
+                  </button>
                 </div>
-                <button
-                  onClick={() => {
-                    router.push(`/serie/${compressURL(e?.resource)}`);
-                  }}
-                  className="bg-blue-600 rounded-sm text-sm font-bold p-2 cursor-pointer"
-                >
-                  Play
-                </button>
               </li>
             );
           })}

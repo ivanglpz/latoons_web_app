@@ -1,36 +1,76 @@
 /* eslint-disable @next/next/no-img-element */
 import { Seo } from "@/components/seo";
-import { fetchSerie } from "@/services/series";
+import { fetchSerie, JSON_SCHEMA, Serie } from "@/services/series";
 import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
-import { useRouter } from "next/router";
 
-const SeriePage = () => {
-  const params = useRouter();
+import type { GetStaticPaths } from "next";
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts = await fetch(process.env.NEXT_PUBLIC_SERIES ?? "").then((res) =>
+    res.json()
+  );
+  const paths = posts.map((post: Serie) => ({
+    params: { id: String(post.slug) },
+  }));
+
+  // We'll prerender only these paths at build time.
+  // { fallback: 'blocking' } will server-render pages
+  // on-demand if the path doesn't exist.
+  return { paths, fallback: false };
+};
+
+export const getStaticProps = async ({
+  params,
+}: {
+  params: { id: string };
+}) => {
+  const serie: JSON_SCHEMA = await fetch(
+    `${process.env.NEXT_PUBLIC_SEO}${params.id}.json`
+  ).then((res) => res.json());
+
+  return {
+    props: serie,
+    // Next.js will invalidate the cache when a
+    // request comes in, at most once every 60 seconds.
+    revalidate: 86400,
+  };
+};
+
+const SeriePage = ({ serie }: JSON_SCHEMA) => {
+  const URL = `${process.env.NEXT_PUBLIC_SEO}${serie?.slug}.json`;
 
   const { data } = useQuery({
-    queryKey: ["serie_page", params?.query?.id],
-    queryFn: async () => fetchSerie(params?.query?.id as string),
-    enabled: params?.query?.id !== undefined,
+    queryKey: ["serie_page", URL],
+    queryFn: async () => fetchSerie(URL as string),
+    enabled: URL !== undefined,
   });
+
+  const title = `LaToons - ${serie?.title}`;
+  const url = `${process.env.NEXT_PUBLIC_URL}/serie/${serie?.slug}`;
+  const description = serie?.review?.slice(0, 155);
 
   if (!data) {
     return (
       <div className="h-dvh w-full flex justify-center items-center">
+        <Seo
+          description={description}
+          title={title}
+          image={serie?.image ?? ""}
+          keywords="cartoons,latoons,animation, series, serie, details, studio, temporadas, episodios"
+          url={url}
+        />
         <span className="loader"></span>
       </div>
     );
   }
-  const title = `LaToons - ${data?.serie?.title}`;
-  const url = `${process.env.NEXT_PUBLIC_URL}/serie/${params?.query?.id}`;
-  const description = data?.serie?.review?.slice(0, 155);
 
   return (
-    <main className="flex flex-col items-center justify-center pt-4">
+    <main className="flex flex-col items-center justify-center pt-4 pb-12">
       <Seo
         description={description}
         title={title}
-        image={data?.serie?.image ?? ""}
+        image={serie?.image ?? ""}
         keywords="cartoons,latoons,animation, series, serie, details, studio, temporadas, episodios"
         url={url}
       />
