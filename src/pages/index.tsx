@@ -104,11 +104,11 @@ export default function Home({ series }: { series: Serie[] }) {
           </div>
         </div>
       </section>
-      <section className=" flex flex-col gap-4 max-w-[1024px] w-full px-4  min-h-[100dvh]">
+      <section className="flex flex-col gap-4 w-full px-4">
         <div>
           <p className="font-bold text-lg">Popular Series</p>
         </div>
-        <ul className="grid grid-cols-1 gap-4  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 ">
+        <ul className="grid grid-cols-1 gap-4  sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 ">
           {series?.map((e) => {
             return (
               <li key={e?.id} className="flex flex-col">
