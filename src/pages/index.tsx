@@ -34,7 +34,7 @@ export default function Home({ series }: { series: Serie[] }) {
         url={`${process.env.NEXT_PUBLIC_URL ?? "https://latoons.vercel.app/"}`}
       />
 
-      <section className="relative bg-red-300 w-full">
+      <section className="relative w-full">
         <div className="relative h-[60vh] w-full overflow-hidden">
           <img
             src={serie?.background}
