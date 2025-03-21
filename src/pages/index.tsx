@@ -125,7 +125,7 @@ export default function Home({ series }: { series: Serie[] }) {
                     />
                   </div>
 
-                  <div className="flex flex-col gap-2 pt-2 pb-4 h-[80px] ">
+                  <div className="flex flex-col gap-2 pt-2 pb-4 h-[100px] ">
                     <p className="font-bold text-sm line-clamp-2 col-span-2">
                       {e?.title}
                     </p>
