@@ -1,3 +1,4 @@
+import { Header } from "@/components/header";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 
@@ -15,7 +16,13 @@ import type { AppProps } from "next/app";
 export default function App({ Component, pageProps }: AppProps) {
   return (
     // <QueryClientProvider client={queryClient}>
-    <Component {...pageProps} />
+
+    <>
+      <Header />
+      <main className="flex flex-col items-center justify-center gap-6">
+        <Component {...pageProps} />
+      </main>
+    </>
     // </QueryClientProvider>
   );
 }

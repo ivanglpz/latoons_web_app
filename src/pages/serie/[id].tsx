@@ -65,7 +65,7 @@ const SeriePage = ({ serie, seasons }: JSON_SCHEMA) => {
   // }
 
   return (
-    <main className="flex flex-col items-center justify-center pt-4 pb-12">
+    <>
       <Seo
         description={description}
         title={title}
@@ -107,7 +107,7 @@ const SeriePage = ({ serie, seasons }: JSON_SCHEMA) => {
           })}
         </ul>
       </section>
-    </main>
+    </>
   );
 };
 export default SeriePage;
