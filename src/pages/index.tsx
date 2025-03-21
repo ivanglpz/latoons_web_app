@@ -51,7 +51,7 @@ export default function Home({ series }: { series: Serie[] }) {
                 Trending Now
               </span>
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold text-white">
+            <h1 className="text-3xl md:text-5xl font-bold text-neutral-700 dark:text-neutral-50">
               {serie?.title}
             </h1>
             <div className="flex items-center gap-4">
@@ -105,6 +105,9 @@ export default function Home({ series }: { series: Serie[] }) {
         </div>
       </section>
       <section className=" flex flex-col gap-4 max-w-[1024px] w-full px-4  min-h-[100dvh]">
+        <div>
+          <p className="font-bold text-lg">Popular Series</p>
+        </div>
         <ul className="grid grid-cols-1 gap-4  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 ">
           {series?.map((e) => {
             return (
