@@ -116,7 +116,7 @@ export default function Home({ series }: { series: Serie[] }) {
                   href={`/serie/${e?.slug}`}
                   className="h-full flex flex-col"
                 >
-                  <div className="bg-neutral-200 dark:bg-neutral-800 w-full h-[370px]  ">
+                  <div className="bg-neutral-200 dark:bg-neutral-800 w-full h-[180px] md:h-[210px] xl:h-[370px] ">
                     <img
                       loading="lazy"
                       src={e?.image}
