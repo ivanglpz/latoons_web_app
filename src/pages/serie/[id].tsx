@@ -62,43 +62,10 @@ const SeriePage = ({ serie, seasons }: JSON_SCHEMA) => {
         keywords="cartoons,latoons,animation, series, serie, details, studio, temporadas, episodios"
         url={url}
       />
-      {/* <section className=" flex flex-col gap-4 max-w-[1024px] w-full px-4">
-        <img
-          loading="lazy"
-          className="w-full bg-black aspect-video object-cover object-center rounded-lg"
-          src={serie?.background ?? ""}
-          alt={serie?.title + "_alt_background"}
-        />
-        <h1 className="font-bold text-2xl">{serie?.title}</h1>
-        <p>{serie?.review}</p>
-        <ul className="flex flex-col-reverse gap-4">
-          {seasons?.map((e) => {
-            return (
-              <li key={e?.season?.id}>
-                <p className="font-bold mb-4 px-2 sticky top-[10px] border bg-white dark:border-neutral-700 dark:bg-neutral-900 dark:text-white p-2 text-black rounded-md">
-                  🎬 {e?.season?.title}
-                </p>
-                <ul className="flex flex-col gap-4 pl-5">
-                  {e?.episodes?.map((i, indx) => {
-                    return (
-                      <li key={i?.id}>
-                        <Link href={i?.video} target="_blank" referrerPolicy="">
-                          <p>
-                            {indx + 1}. {i?.title} ▶️
-                          </p>
-                        </Link>
-                      </li>
-                    );
-                  })}
-                </ul>
-              </li>
-            );
-          })}
-        </ul>
-      </section> */}
+
       <div className="flex flex-col min-h-screen bg-white dark:bg-neutral-950 w-full">
         {/* Banner */}
-        <div className="relative w-full h-[60vh] ">
+        <div className="relative w-full  sm:aspect-video md:h-[60vh]">
           <img
             src={serie?.background}
             alt={`backgorund-serie-image-${serie?.title}`}
@@ -254,11 +221,11 @@ const SeriePage = ({ serie, seasons }: JSON_SCHEMA) => {
                           {episodes.map((episode) => (
                             <div
                               key={episode.id}
-                              className="bg-card rounded-lg border border-neutral-200  bg-white dark:border-neutral-700 dark:bg-neutral-700"
+                              className="bg-card rounded-lg border border-neutral-200  bg-white dark:border-neutral-700 dark:bg-neutral-800"
                             >
                               <div className="grid grid-cols-1 md:grid-cols-[100px_1fr] gap-4 items-center">
                                 <button
-                                  className="relative cursor-pointer h-[100px] rounded-lg md:h-full bg-neutral-800 flex justify-center items-center"
+                                  className="relative cursor-pointer h-[100px] rounded-lg md:h-full bg-black flex justify-center items-center"
                                   onClick={() =>
                                     window.open(episode?.video, "blank")
                                   }
