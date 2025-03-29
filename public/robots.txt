@@ -137,3 +137,6 @@ Disallow: /serie/*/episode/
 Disallow: /episode/
 
 Disallow: /serie/*/episode/*
+
+User-agent: *
+Disallow: /serie/*/episode/
