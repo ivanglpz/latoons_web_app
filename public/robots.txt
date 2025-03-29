@@ -128,3 +128,12 @@ Host: https://latoons.vercel.app/
 
 # Sitemaps
 Sitemap: https://latoons.vercel.app/sitemap.xml
+Disallow: /serie/*/episode/
+
+User-agent: *
+Disallow: */episode/*
+Disallow: /*/episode/*
+Disallow: /serie/*/episode/
+Disallow: /episode/
+
+Disallow: /serie/*/episode/*
