@@ -33,6 +33,7 @@ export const getStaticProps = async ({
     // Next.js will invalidate the cache when a
     // request comes in, at most once every 60 seconds.
     // revalidate: 86400,
+    revalidate: 86400,
   };
 };
 
